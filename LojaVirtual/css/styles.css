@@ -1,0 +1,414 @@
+/*styles.css — Estilos globais da MisteriX */
+
+/* Importação da fonte Spartan via Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Variáveis CSS — paleta de cores global
+    */
+:root {
+    --cor-fundo:         #1a1a1a;
+    --cor-texto:         #ffffff;
+    --cor-cinza:         #6e6e6e;
+    --cor-hover:         #444444;
+    --cor-destaque:      #e63946;
+    --cor-footer-texto:  #aaaaaa;
+    --cor-detalhe-fundo: #ffffff;
+    --cor-detalhe-texto: #1a1a1a;
+    --cor-detalhe-sec:   #444444;
+}
+
+/* Scroll suave para navegação por âncoras */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reset global: remove margens/paddings padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+    line-height: 64px;
+    color: var(--cor-texto);
+}
+
+h2 {
+    font-size: 46px;
+    line-height: 54px;
+    color: var(--cor-texto);
+}
+
+h4 {
+    font-size: 20px;
+    color: var(--cor-texto);
+}
+
+p {
+    font-size: 16px;
+    color: var(--cor-texto);
+    margin: 15px 0 20px 0;
+}
+
+/* Padding padrão usado nas seções internas */
+.section-p1 {
+    padding: 40px 80px;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cor-fundo);
+}
+
+/* Cabeçalho fixo no topo — logo + navbar */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 80px;
+    background: var(--cor-cinza);
+    box-shadow: 0 5px 15px rgba(20, 20, 20, 0.959);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+/* Barra de navegação */
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--cor-detalhe-texto);
+    transition: color 0.3s;
+}
+
+#navbar li a:hover {
+    color: var(--cor-texto);
+}
+
+/* Seção hero da Home com imagem de fundo */
+#home {
+    background: url('../img/Balenciagaa.webp') no-repeat center;
+    height: 90vh;
+    width: 100%;
+    background-position: top 25% left 0;
+    background-size: cover;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+#home h4 {
+    padding-bottom: 15px;
+}
+
+/* Título de seção usado acima dos grids de produtos */
+.section-title {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 28px;
+    color: var(--cor-texto);
+}
+
+/* Botões de ordenação por preço */
+.filtro-preco {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.filtro-preco button {
+    padding: 8px 22px;
+    border: 2px solid var(--cor-texto);
+    background: transparent;
+    color: var(--cor-texto);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.filtro-preco button:hover,
+.filtro-preco button.ativo {
+    background: var(--cor-texto);
+    color: var(--cor-fundo);
+}
+
+/* Cards de categoria na página Home (Jaquetas, Botas, Calças) */
+.fe-box {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 520px;
+    background-color: var(--cor-cinza);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.card h3 {
+    margin-top: 10px;
+    font-size: 25px;
+    color: var(--cor-texto);
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Grid de produtos nas páginas de categoria */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
+}
+
+/* Cada card de produto individual */
+.product-card {
+    width: 400px;
+    background-color: var(--cor-cinza);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.product-card h4 {
+    margin: 20px 0 5px;
+    font-size: 20px;
+}
+
+.product-card p {
+    font-weight: bold;
+    color: var(--cor-texto);
+}
+
+/* Wrapper <a> de cada card — mantém 4 por linha no grid */
+.product-link {
+    display: block;
+    width: calc(25% - 20px);
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Botão de adicionar ao carrinho */
+.btn-carrinho {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-carrinho:hover {
+    background-color: var(--cor-hover);
+}
+
+/* Badge numérico vermelho exibido no ícone do carrinho */
+.badge-carrinho {
+    background-color: var(--cor-destaque);
+    color: var(--cor-texto);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    vertical-align: middle;
+    display: none;
+}
+
+/* Layout da página de detalhe do produto (imagem + info lado a lado) */
+.produto-detalhe {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background-color: var(--cor-detalhe-fundo);
+    padding: 40px 80px;
+    border-radius: 12px;
+}
+
+.produto-detalhe-img {
+    flex: 1;
+    min-width: 280px;
+    max-width: 480px;
+}
+
+.produto-detalhe-img img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.produto-detalhe-info {
+    flex: 1;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Título do produto na página de detalhe */
+.produto-detalhe-info h2 {
+    font-size: 32px;
+    color: var(--cor-detalhe-texto);
+}
+
+.produto-preco {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--cor-detalhe-texto);
+    margin: 0;
+}
+
+.produto-descricao {
+    font-size: 15px;
+    color: var(--cor-detalhe-sec);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Seletor de quantidade (+/-) na página de detalhe */
+.seletor-quantidade {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 4px 0;
+}
+
+.seletor-quantidade button {
+    width: 36px;
+    height: 36px;
+    background-color: var(--cor-detalhe-texto);
+    color: var(--cor-texto);
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.seletor-quantidade button:hover {
+    background-color: var(--cor-hover);
+}
+
+.seletor-quantidade input {
+    width: 60px;
+    height: 36px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid var(--cor-detalhe-texto);
+    border-radius: 6px;
+    color: var(--cor-detalhe-texto);
+    background: var(--cor-detalhe-fundo);
+}
+
+/* Link de retorno à página de categoria */
+.btn-voltar {
+    display: inline-block;
+    margin-top: 10px;
+    color: #555555;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.btn-voltar:hover {
+    color: var(--cor-detalhe-texto);
+}
+
+/* Rodapé global */
+#footer {
+    background-color: var(--cor-fundo);
+    padding: 30px 80px;
+    text-align: center;
+    margin-top: auto;
+}
+
+#footer p {
+    font-size: 14px;
+    color: var(--cor-footer-texto);
+    margin: 5px 0;
+}
+
+#footer a {
+    color: var(--cor-texto);
+    text-decoration: none;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+/* Página do carrinho — fundo claro com texto escuro */
+.pagina-carrinho {
+    background-color: var(--cor-detalhe-fundo);
+}
+
+.pagina-carrinho h2,
+.pagina-carrinho p {
+    color: var(--cor-detalhe-texto);
+}
+

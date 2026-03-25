@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Minha loja virtual</title>
+    <link rel="stylesheet" href="http://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+  </head>
+
+  <body>
+    <!-- CABEÇALHO: logo + navbar -->
+    <section id="header">
+      <a href="index.html"><img src="img/BannerMinhaLoja1.png" class="Logo da loja" alt=""/></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="carrinho.html">Meu Carrinho <span id="contador-carrinho" class="badge-carrinho"></span></a></li>
+        </ul>
+      </div>
+    </section>
+
+<!-- TÍTULO E FILTRO DE PREÇO -->
+<h2 class="section-title">Modelos disponíveis:</h2>
+
+<div class="filtro-preco">
+  <button onclick="ordenarPorPreco('asc', this)">&#8593; Menor preço</button>
+  <button onclick="ordenarPorPreco('desc', this)">&#8595; Maior preço</button>
+</div>
+
+<!-- GRID DE PRODUTOS: cada .product-link é um card clicável -->
+<section class="products" id="products-container">
+
+    <a href="produtosjaquetas/produto-jaqueta1.html" class="product-link">
+  <div class="product-card">
+    <img src="img/products/ProdutosJaquetas/ProductsJaqueta1.png" alt="">
+    <h4>Leatherjacket (L)</h4>
+    <p>R$ 997,00</p>
+    <button class="btn-carrinho" onclick="event.preventDefault(); event.stopPropagation(); adicionarAoCarrinho('Leatherjacket (L)', 'R$ 997,00', 'img/products/ProdutosJaquetas/ProductsJaqueta1.png');">Adicionar ao carrinho</button>
+  </div>
+</a>
+
+<a href="produtosjaquetas/produto-jaqueta2.html" class="product-link">
+  <div class="product-card">
+    <img src="img/products/ProdutosJaquetas/ProductsJaqueta2.png" alt="">
+    <h4>Leatherjacket (M)</h4>
+    <p>R$ 898,90</p>
+    <button class="btn-carrinho" onclick="event.preventDefault(); event.stopPropagation(); adicionarAoCarrinho('Leatherjacket (M)', 'R$ 898,90', 'img/products/ProdutosJaquetas/ProductsJaqueta2.png');">Adicionar ao carrinho</button>
+  </div>
+</a>
+
+<a href="produtosjaquetas/produto-jaqueta3.html" class="product-link">
+  <div class="product-card">
+    <img src="img/products/ProdutosJaquetas/ProductsJaqueta3.png" alt="">
+    <h4>Leatherjacket (S)</h4>
+    <p>R$ 989,90</p>
+    <button class="btn-carrinho" onclick="event.preventDefault(); event.stopPropagation(); adicionarAoCarrinho('Leatherjacket (S)', 'R$ 989,90', 'img/products/ProdutosJaquetas/ProductsJaqueta3.png');">Adicionar ao carrinho</button>
+  </div>
+</a>
+
+<a href="produtosjaquetas/produto-jaqueta4.html" class="product-link">
+  <div class="product-card">
+    <img src="img/products/ProdutosJaquetas/ProductsJaqueta4.png" alt="">
+    <h4>Leatherjacket (XL)</h4>
+    <p>R$ 1247,90</p>
+    <button class="btn-carrinho" onclick="event.preventDefault(); event.stopPropagation(); adicionarAoCarrinho('Leatherjacket (XL)', 'R$ 1247,90', 'img/products/ProdutosJaquetas/ProductsJaqueta4.png');">Adicionar ao carrinho</button>
+  </div>
+</a>
+
+<a href="produtosjaquetas/produto-jaqueta5.html" class="product-link">
+  <div class="product-card">
+    <img src="img/products/ProdutosJaquetas/ProductsJaqueta5.png" alt="">
+    <h4>Leatherjacket (L)</h4>
+    <p>R$ 988,90</p>
+    <button class="btn-carrinho" onclick="event.preventDefault(); event.stopPropagation(); adicionarAoCarrinho('Leatherjacket (L)', 'R$ 988,90', 'img/products/ProdutosJaquetas/ProductsJaqueta5.png');">Adicionar ao carrinho</button>
+  </div>
+</a>
+
+<a href="produtosjaquetas/produto-jaqueta6.html" class="product-link">
+  <div class="product-card">
+    <img src="img/products/ProdutosJaquetas/ProductsJaqueta6.png" alt="">
+    <h4>Leatherjacket (XL)</h4>
+    <p>R$ 1148,90</p>
+    <button class="btn-carrinho" onclick="event.preventDefault(); event.stopPropagation(); adicionarAoCarrinho('Leatherjacket (XL)', 'R$ 1148,90', 'img/products/ProdutosJaquetas/ProductsJaqueta6.png');">Adicionar ao carrinho</button>
+  </div>
+</a>
+
+<a href="produtosjaquetas/produto-jaqueta7.html" class="product-link">
+  <div class="product-card">
+    <img src="img/products/ProdutosJaquetas/ProductsJaqueta7.png" alt="">
+    <h4>Leatherjacket (XL)</h4>
+    <p>R$ 1228,90</p>
+    <button class="btn-carrinho" onclick="event.preventDefault(); event.stopPropagation(); adicionarAoCarrinho('Leatherjacket (XL)', 'R$ 1228,90', 'img/products/ProdutosJaquetas/ProductsJaqueta7.png');">Adicionar ao carrinho</button>
+  </div>
+</a>
+
+<a href="produtosjaquetas/produto-jaqueta8.html" class="product-link">
+  <div class="product-card">
+    <img src="img/products/ProdutosJaquetas/ProductsJaqueta8.png" alt="">
+    <h4>Leatherjacket (XL)</h4>
+    <p>R$ 790,90</p>
+    <button class="btn-carrinho" onclick="event.preventDefault(); event.stopPropagation(); adicionarAoCarrinho('Leatherjacket (XL)', 'R$ 790,90', 'img/products/ProdutosJaquetas/ProductsJaqueta8.png');">Adicionar ao carrinho</button>
+  </div>
+</a>
+</section>
+
+    <!-- RODAPÉ -->
+    <footer id="footer">
+      <div class="footer-content">
+        <p>&copy; 2026 MisteriX. Todos os direitos reservados.</p>
+        <p>Contato: <a href="mailto:contato@misterix.com">contato@misterix.com</a></p>
+      </div>
+    </footer>
+
+    <!-- Carrega as funções do carrinho e do filtro de preço -->
+    <script src="script.js"></script>
+  </body>
+
+</html>

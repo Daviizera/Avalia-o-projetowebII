@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Leatherjacket 5 - MisteriX</title>
+    <link rel="stylesheet" href="http://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="../css/styles.css"/>
+  </head>
+  <body>
+    <!-- CABEÇALHO: logo + navbar -->
+    <section id="header">
+      <a href="../index.html"><img src="../img/BannerMinhaLoja1.png" class="Logo da loja" alt=""/></a>
+      <div>
+        <ul id="navbar">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#sobre">Sobre</a></li>
+          <li><a href="../index.html#contato">Contato</a></li>
+          <li><a href="../carrinho.html">Meu Carrinho <span id="contador-carrinho" class="badge-carrinho"></span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- DETALHE DO PRODUTO: imagem + informações -->
+    <section class="produto-detalhe section-p1">
+      <div class="produto-detalhe-img">
+        <img src="../img/products/ProdutosJaquetas/ProductsJaqueta5.png" alt="Leatherjacket (M)">
+      </div>
+      <div class="produto-detalhe-info">
+        <h2>Leatherjacket (M)</h2>
+        <p class="produto-preco">R$ 988,90</p>
+        <p class="produto-descricao">
+          Jaqueta de couro com corte biker e ombreiras discretas. O design arrojado mistura estética urbana com funcionalidade no dia a dia.
+          Bolsos internos e externos garantem praticidade sem comprometer o visual.
+          Produzida com materiais de alta resistência para longa durabilidade.
+        </p>
+        <div class="seletor-quantidade">
+          <button type="button" onclick="alterarQtd(-1)">&#8722;</button>
+          <input type="number" id="qtd-produto" value="1" min="1" max="99">
+          <button type="button" onclick="alterarQtd(1)">&#43;</button>
+        </div>
+        <button class="btn-carrinho" style="max-width:260px;" onclick="adicionarAoCarrinho('Leatherjacket (M)', 'R$ 988,90', 'img/products/ProdutosJaquetas/ProductsJaqueta5.png', document.getElementById('qtd-produto').value);">Adicionar ao carrinho</button>
+        <a href="../Jaquetas.html" class="btn-voltar">&#8592; Voltar para Jaquetas</a>
+      </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer id="footer">
+      <div class="footer-content">
+        <p>&copy; 2026 MisteriX. Todos os direitos reservados.</p>
+        <p>Contato: <a href="mailto:contato@misterix.com">contato@misterix.com</a></p>
+      </div>
+    </footer>
+
+    <!-- Carrega atualizarContador() para o badge da navbar -->
+    <script src="../script.js"></script>
+  </body>
+</html>

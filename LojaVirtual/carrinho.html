@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Carrinho - MisteriX</title>
+    <link rel="stylesheet" href="http://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+  </head>
+  <body class="pagina-carrinho">
+    <!-- CABEÇALHO: logo + navbar -->
+    <section id="header">
+      <a href="index.html"><img src="img/BannerMinhaLoja1.png" class="Logo da loja" alt=""/></a>
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a href="carrinho.html">Meu Carrinho <span id="contador-carrinho" class="badge-carrinho"></span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTEÚDO DO CARRINHO -->
+    <section class="section-p1">
+      <h2>Meu Carrinho</h2>
+      <div id="lista-carrinho"></div>
+      <p id="total-carrinho" style="font-size:20px; font-weight:bold; margin-top:20px;"></p>
+      <button id="btn-limpar" class="btn-carrinho" style="max-width:200px; margin-top:10px; display:none;">Limpar carrinho</button>
+    </section>
+
+    <!-- Script do carrinho: lê o localStorage e monta a tabela de itens -->
+    <script>
+      /* Lê o localStorage, monta a tabela de itens e calcula o total. */
+      function renderizarCarrinho() {
+        var carrinho = JSON.parse(localStorage.getItem('carrinho') || '[]');
+        var lista = document.getElementById('lista-carrinho');
+        var totalEl = document.getElementById('total-carrinho');
+        var btnLimpar = document.getElementById('btn-limpar');
+
+        if (carrinho.length === 0) {
+          lista.innerHTML = ''
+            + '<div style="text-align:center; padding: 60px 20px;">'
+            + '<p style="font-size:48px; margin:0;">🛒</p>'
+            + '<p style="font-size:22px; font-weight:700; margin:16px 0 8px;">Seu carrinho está vazio!</p>'
+            + '<p style="font-size:15px; color:#aaaaaa; margin:0;">Explore nossa loja e adicione produtos ao carrinho.</p>'
+            + '<a href="index.html#feature" style="display:inline-block; margin-top:24px; padding:12px 28px; background:#1a1a1a; color:#fff; border-radius:8px; text-decoration:none; font-weight:600; font-size:14px; transition:background 0.3s;" onmouseover="this.style.background=\'#444\'" onmouseout="this.style.background=\'#1a1a1a\'">Ver produtos</a>'
+            + '</div>';
+          totalEl.textContent = '';
+          btnLimpar.style.display = 'none';
+          return;
+        }
+
+        var html = '<table style="width:100%; border-collapse:collapse; margin-top:20px;">';
+        html += '<tr style="border-bottom:2px solid #cccccc;">';
+        html += '<th style="padding:10px;"></th>';
+        html += '<th style="text-align:left; padding:10px;">Produto</th>';
+        html += '<th style="padding:10px;">Preço unit.</th>';
+        html += '<th style="padding:10px;">Qtd</th>';
+        html += '<th style="padding:10px;">Subtotal</th>';
+        html += '<th style="padding:10px;">Remover</th>';
+        html += '</tr>';
+
+        var totalValor = 0;
+        carrinho.forEach(function(item, index) {
+          var preco = parseFloat(item.preco.replace('R$ ', '').replace(/\./g, '').replace(',', '.'));
+          var subtotal = preco * item.quantidade;
+          totalValor += subtotal;
+          html += '<tr style="border-bottom:1px solid #e0e0e0;">';
+          html += '<td style="padding:10px; text-align:center;"><img src="' + (item.imagem || '') + '" style="width:64px; height:64px; object-fit:cover; border-radius:6px;" onerror="this.style.display=\'none\'"></td>';
+          html += '<td style="padding:10px;">' + item.nome + '</td>';
+          html += '<td style="padding:10px; text-align:center;">' + item.preco + '</td>';
+          html += '<td style="padding:10px; text-align:center;">' + item.quantidade + '</td>';
+          html += '<td style="padding:10px; text-align:center; font-weight:bold;">R$ ' + subtotal.toLocaleString('pt-BR', { minimumFractionDigits: 2 }) + '</td>';
+          html += '<td style="padding:10px; text-align:center;">'
+            + '<button onclick="removerUnitario(' + index + ')" style="background:#c0392b; color:#fff; border:none; border-radius:6px; padding:6px 12px; cursor:pointer; font-size:13px; font-weight:600; transition:background 0.3s;" onmouseover="this.style.background=\'#e74c3c\'" onmouseout="this.style.background=\'#c0392b\'">'
+            + '&#8722; Remover</button>'
+            + '</td>';
+          html += '</tr>';
+        });
+        html += '</table>';
+
+        lista.innerHTML = html;
+        totalEl.textContent = 'Total: R$ ' + totalValor.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+        btnLimpar.style.display = 'block';
+      }
+
+      /* Remove uma unidade do item no índice fornecido.
+         Se a quantidade chegar a 0, o item é removido completamente. */
+      function removerUnitario(index) {
+        var carrinho = JSON.parse(localStorage.getItem('carrinho') || '[]');
+        if (!carrinho[index]) return;
+        carrinho[index].quantidade -= 1;
+        if (carrinho[index].quantidade <= 0) {
+          carrinho.splice(index, 1);
+        }
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        renderizarCarrinho();
+        atualizarContador();
+      }
+
+      /* Limpa o carrinho do localStorage e re-renderiza a lista vazia. */
+      document.getElementById('btn-limpar').addEventListener('click', function() {
+        localStorage.removeItem('carrinho');
+        renderizarCarrinho();
+      });
+
+      renderizarCarrinho();
+    </script>
+    <!-- script.js carrega atualizarContador() para o badge da navbar -->
+    <script src="script.js"></script>
+
+    <!-- RODAPÉ -->
+    <footer id="footer">
+      <div class="footer-content">
+        <p>&copy; 2026 MisteriX. Todos os direitos reservados.</p>
+        <p>Contato: <a href="mailto:contato@misterix.com">contato@misterix.com</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

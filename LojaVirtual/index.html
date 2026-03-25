@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Minha loja virtual</title>
+    <link rel="stylesheet" href="http://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+  </head>
+
+  <body>
+    <!-- CABEÇALHO: logo + navbar -->
+    <section id="header">
+      <a href="#home"><img src="img/BannerMinhaLoja1.png" class="Logo da loja" alt=""/></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="carrinho.html">Meu Carrinho <span id="contador-carrinho" class="badge-carrinho"></span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- HERO: banner principal -->
+    <section id="home">
+      <h4> Encontre os melhores produtos para você</h4>
+      <h2> Bem-vindo à nossa loja virtual!</h2>
+      <h1> Desconto em até 35%</h1>
+      <p> Aproveite nossas ofertas exclusivas e renove seu estilo com os melhores produtos</p>
+    </section>
+
+    <!-- CATEGORIAS: cards de Jaquetas, Botas e Calças -->
+    <section id="feature" class="section-p1">
+  <h2 class="section-title">Nossos produtos disponíveis:</h2>
+  <div class="fe-box">
+
+    <a href="jaquetas.html" class="card-link">
+  <div class="card">
+    <img src="img/features/Jaquetasimg.png" alt="">
+    <h3>Jaquetas</h3>
+  </div>
+</a>
+
+<a href="botas.html" class="card-link">
+  <div class="card">
+    <img src="img/features/Botasimg.png" alt="">
+    <h3>Botas</h3>
+  </div>
+</a>
+
+<a href="calças.html" class="card-link">
+  <div class="card">
+    <img src="img/features/Calçasimg.png" alt="">
+    <h3>Calças</h3>
+  </div>
+</a>
+  </div>
+</section>
+
+
+    <!-- RODAPÉ -->
+    <footer id="footer">
+      <div class="footer-content">
+        <p id="sobre">&copy; 2026 MisteriX. Todos os direitos reservados.</p>
+        <p id="contato">Contato: <a href="mailto:contato@misterix.com">contato@misterix.com</a></p>
+      </div>
+    </footer>
+
+    <!-- Carrega as funções do carrinho e do filtro de preço -->
+    <script src="script.js"></script>
+  </body>
+
+</html>
